@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="mybatis-generator-core-1.3.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../备份/generator项目JAR包/mybatis-generator-core-1.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../备份/generator项目JAR包/mysql-connector-java-5.1.45.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../备份/generator项目JAR包/ojdbc14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../备份/generator项目JAR包/mybatis-3.4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../备份/generator项目JAR包/log4j-1.2.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

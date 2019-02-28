@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lijiang.generator.mapper.YlgjMallCarTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.lijiang.generator.bean.YlgjMallCarType" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="car_brand_id" property="carBrandId" jdbcType="INTEGER" />
+    <result column="car_type_name" property="carTypeName" jdbcType="VARCHAR" />
+    <result column="car_type_thumbnail" property="carTypeThumbnail" jdbcType="VARCHAR" />
+    <result column="describes" property="describes" jdbcType="VARCHAR" />
+    <result column="guidance_price" property="guidancePrice" jdbcType="VARCHAR" />
+    <result column="driving_form" property="drivingForm" jdbcType="VARCHAR" />
+    <result column="max_power" property="maxPower" jdbcType="VARCHAR" />
+    <result column="car_load" property="carLoad" jdbcType="VARCHAR" />
+    <result column="emission_standard" property="emissionStandard" jdbcType="VARCHAR" />
+    <result column="car_engine" property="carEngine" jdbcType="VARCHAR" />
+    <result column="pictures" property="pictures" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="if_hit" property="ifHit" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, car_brand_id, car_type_name, car_type_thumbnail, describes, guidance_price, driving_form, 
+    max_power, car_load, emission_standard, car_engine, pictures, state, if_hit, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ylgj_mall_car_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ylgj_mall_car_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lijiang.generator.bean.YlgjMallCarType" >
+    insert into ylgj_mall_car_type (id, car_brand_id, car_type_name, 
+      car_type_thumbnail, describes, guidance_price, 
+      driving_form, max_power, car_load, 
+      emission_standard, car_engine, pictures, 
+      state, if_hit, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{carBrandId,jdbcType=INTEGER}, #{carTypeName,jdbcType=VARCHAR}, 
+      #{carTypeThumbnail,jdbcType=VARCHAR}, #{describes,jdbcType=VARCHAR}, #{guidancePrice,jdbcType=VARCHAR}, 
+      #{drivingForm,jdbcType=VARCHAR}, #{maxPower,jdbcType=VARCHAR}, #{carLoad,jdbcType=VARCHAR}, 
+      #{emissionStandard,jdbcType=VARCHAR}, #{carEngine,jdbcType=VARCHAR}, #{pictures,jdbcType=VARCHAR}, 
+      #{state,jdbcType=TINYINT}, #{ifHit,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lijiang.generator.bean.YlgjMallCarType" >
+    insert into ylgj_mall_car_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="carBrandId != null" >
+        car_brand_id,
+      </if>
+      <if test="carTypeName != null" >
+        car_type_name,
+      </if>
+      <if test="carTypeThumbnail != null" >
+        car_type_thumbnail,
+      </if>
+      <if test="describes != null" >
+        describes,
+      </if>
+      <if test="guidancePrice != null" >
+        guidance_price,
+      </if>
+      <if test="drivingForm != null" >
+        driving_form,
+      </if>
+      <if test="maxPower != null" >
+        max_power,
+      </if>
+      <if test="carLoad != null" >
+        car_load,
+      </if>
+      <if test="emissionStandard != null" >
+        emission_standard,
+      </if>
+      <if test="carEngine != null" >
+        car_engine,
+      </if>
+      <if test="pictures != null" >
+        pictures,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="ifHit != null" >
+        if_hit,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carBrandId != null" >
+        #{carBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeName != null" >
+        #{carTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="carTypeThumbnail != null" >
+        #{carTypeThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="describes != null" >
+        #{describes,jdbcType=VARCHAR},
+      </if>
+      <if test="guidancePrice != null" >
+        #{guidancePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingForm != null" >
+        #{drivingForm,jdbcType=VARCHAR},
+      </if>
+      <if test="maxPower != null" >
+        #{maxPower,jdbcType=VARCHAR},
+      </if>
+      <if test="carLoad != null" >
+        #{carLoad,jdbcType=VARCHAR},
+      </if>
+      <if test="emissionStandard != null" >
+        #{emissionStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="carEngine != null" >
+        #{carEngine,jdbcType=VARCHAR},
+      </if>
+      <if test="pictures != null" >
+        #{pictures,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="ifHit != null" >
+        #{ifHit,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lijiang.generator.bean.YlgjMallCarType" >
+    update ylgj_mall_car_type
+    <set >
+      <if test="carBrandId != null" >
+        car_brand_id = #{carBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeName != null" >
+        car_type_name = #{carTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="carTypeThumbnail != null" >
+        car_type_thumbnail = #{carTypeThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="describes != null" >
+        describes = #{describes,jdbcType=VARCHAR},
+      </if>
+      <if test="guidancePrice != null" >
+        guidance_price = #{guidancePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingForm != null" >
+        driving_form = #{drivingForm,jdbcType=VARCHAR},
+      </if>
+      <if test="maxPower != null" >
+        max_power = #{maxPower,jdbcType=VARCHAR},
+      </if>
+      <if test="carLoad != null" >
+        car_load = #{carLoad,jdbcType=VARCHAR},
+      </if>
+      <if test="emissionStandard != null" >
+        emission_standard = #{emissionStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="carEngine != null" >
+        car_engine = #{carEngine,jdbcType=VARCHAR},
+      </if>
+      <if test="pictures != null" >
+        pictures = #{pictures,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="ifHit != null" >
+        if_hit = #{ifHit,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lijiang.generator.bean.YlgjMallCarType" >
+    update ylgj_mall_car_type
+    set car_brand_id = #{carBrandId,jdbcType=INTEGER},
+      car_type_name = #{carTypeName,jdbcType=VARCHAR},
+      car_type_thumbnail = #{carTypeThumbnail,jdbcType=VARCHAR},
+      describes = #{describes,jdbcType=VARCHAR},
+      guidance_price = #{guidancePrice,jdbcType=VARCHAR},
+      driving_form = #{drivingForm,jdbcType=VARCHAR},
+      max_power = #{maxPower,jdbcType=VARCHAR},
+      car_load = #{carLoad,jdbcType=VARCHAR},
+      emission_standard = #{emissionStandard,jdbcType=VARCHAR},
+      car_engine = #{carEngine,jdbcType=VARCHAR},
+      pictures = #{pictures,jdbcType=VARCHAR},
+      state = #{state,jdbcType=TINYINT},
+      if_hit = #{ifHit,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

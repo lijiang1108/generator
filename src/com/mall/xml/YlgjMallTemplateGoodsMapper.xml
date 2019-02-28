@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.mapper.YlgjMallTemplateGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.mall.model.YlgjMallTemplateGoods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="template_id" property="templateId" jdbcType="INTEGER" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="goods_pic" property="goodsPic" jdbcType="VARCHAR" />
+    <result column="goods_order" property="goodsOrder" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, template_id, goods_id, goods_pic, goods_order
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ylgj_mall_template_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ylgj_mall_template_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mall.model.YlgjMallTemplateGoods" >
+    insert into ylgj_mall_template_goods (id, template_id, goods_id, 
+      goods_pic, goods_order)
+    values (#{id,jdbcType=INTEGER}, #{templateId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
+      #{goodsPic,jdbcType=VARCHAR}, #{goodsOrder,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mall.model.YlgjMallTemplateGoods" >
+    insert into ylgj_mall_template_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="templateId != null" >
+        template_id,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="goodsPic != null" >
+        goods_pic,
+      </if>
+      <if test="goodsOrder != null" >
+        goods_order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="templateId != null" >
+        #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsPic != null" >
+        #{goodsPic,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsOrder != null" >
+        #{goodsOrder,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mall.model.YlgjMallTemplateGoods" >
+    update ylgj_mall_template_goods
+    <set >
+      <if test="templateId != null" >
+        template_id = #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsPic != null" >
+        goods_pic = #{goodsPic,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsOrder != null" >
+        goods_order = #{goodsOrder,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mall.model.YlgjMallTemplateGoods" >
+    update ylgj_mall_template_goods
+    set template_id = #{templateId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_pic = #{goodsPic,jdbcType=VARCHAR},
+      goods_order = #{goodsOrder,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.mapper.YlgjMallConsultMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.mall.model.YlgjMallConsultMessage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="app_type" property="appType" jdbcType="TINYINT" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="car_buying_time" property="carBuyingTime" jdbcType="DATE" />
+    <result column="car_type_id" property="carTypeId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tel, app_type, account, address, car_buying_time, car_type_id, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ylgj_mall_consult_message
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ylgj_mall_consult_message
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mall.model.YlgjMallConsultMessage" >
+    insert into ylgj_mall_consult_message (id, tel, app_type, 
+      account, address, car_buying_time, 
+      car_type_id, create_time)
+    values (#{id,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, #{appType,jdbcType=TINYINT}, 
+      #{account,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{carBuyingTime,jdbcType=DATE}, 
+      #{carTypeId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mall.model.YlgjMallConsultMessage" >
+    insert into ylgj_mall_consult_message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="appType != null" >
+        app_type,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="carBuyingTime != null" >
+        car_buying_time,
+      </if>
+      <if test="carTypeId != null" >
+        car_type_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        #{appType,jdbcType=TINYINT},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="carBuyingTime != null" >
+        #{carBuyingTime,jdbcType=DATE},
+      </if>
+      <if test="carTypeId != null" >
+        #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mall.model.YlgjMallConsultMessage" >
+    update ylgj_mall_consult_message
+    <set >
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        app_type = #{appType,jdbcType=TINYINT},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="carBuyingTime != null" >
+        car_buying_time = #{carBuyingTime,jdbcType=DATE},
+      </if>
+      <if test="carTypeId != null" >
+        car_type_id = #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mall.model.YlgjMallConsultMessage" >
+    update ylgj_mall_consult_message
+    set tel = #{tel,jdbcType=VARCHAR},
+      app_type = #{appType,jdbcType=TINYINT},
+      account = #{account,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      car_buying_time = #{carBuyingTime,jdbcType=DATE},
+      car_type_id = #{carTypeId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.mapper.YlgjUserFbzMapper" >
+  <resultMap id="BaseResultMap" type="com.mall.model.YlgjUserFbz" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="id_image" property="idImage" jdbcType="VARCHAR" />
+    <result column="id_img_backside" property="idImgBackside" jdbcType="VARCHAR" />
+    <result column="business_image" property="businessImage" jdbcType="VARCHAR" />
+    <result column="zzjg_img" property="zzjgImg" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="district" property="district" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="check_time" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="check_admin_id" property="checkAdminId" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="business_number" property="businessNumber" jdbcType="VARCHAR" />
+    <result column="business_name" property="businessName" jdbcType="VARCHAR" />
+    <result column="qy_contact" property="qyContact" jdbcType="VARCHAR" />
+    <result column="out_date" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="validate_code" property="validateCode" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
+    <result column="online_time" property="onlineTime" jdbcType="DOUBLE" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="dealer_id" property="dealerId" jdbcType="VARCHAR" />
+    <result column="account_id" property="accountId" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="types" property="types" jdbcType="INTEGER" />
+    <result column="registerTimes" property="registertimes" jdbcType="VARCHAR" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="parent_name" property="parentName" jdbcType="VARCHAR" />
+    <result column="parent_code" property="parentCode" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="refuse_message" property="refuseMessage" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tel, password, type, name, id_image, id_img_backside, business_image, zzjg_img, 
+    state, address, district, province, check_time, check_admin_id, latitude, register_time, 
+    id_card, business_number, business_name, qy_contact, out_date, validate_code, salt, 
+    score, online_time, login_time, dealer_id, account_id, account_name, bank_account, 
+    bank_name, types, registerTimes, cname, parent_name, parent_code, parent_id, refuse_message
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ylgj_user_fbz
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ylgj_user_fbz
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mall.model.YlgjUserFbz" >
+    insert into ylgj_user_fbz (id, tel, password, 
+      type, name, id_image, 
+      id_img_backside, business_image, zzjg_img, 
+      state, address, district, 
+      province, check_time, check_admin_id, 
+      latitude, register_time, id_card, 
+      business_number, business_name, qy_contact, 
+      out_date, validate_code, salt, 
+      score, online_time, login_time, 
+      dealer_id, account_id, account_name, 
+      bank_account, bank_name, types, 
+      registerTimes, cname, parent_name, 
+      parent_code, parent_id, refuse_message
+      )
+    values (#{id,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idImage,jdbcType=VARCHAR}, 
+      #{idImgBackside,jdbcType=VARCHAR}, #{businessImage,jdbcType=VARCHAR}, #{zzjgImg,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{checkAdminId,jdbcType=VARCHAR}, 
+      #{latitude,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP}, #{idCard,jdbcType=VARCHAR}, 
+      #{businessNumber,jdbcType=VARCHAR}, #{businessName,jdbcType=VARCHAR}, #{qyContact,jdbcType=VARCHAR}, 
+      #{outDate,jdbcType=TIMESTAMP}, #{validateCode,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
+      #{score,jdbcType=DOUBLE}, #{onlineTime,jdbcType=DOUBLE}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{dealerId,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{bankAccount,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, #{types,jdbcType=INTEGER}, 
+      #{registertimes,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, #{parentName,jdbcType=VARCHAR}, 
+      #{parentCode,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{refuseMessage,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mall.model.YlgjUserFbz" >
+    insert into ylgj_user_fbz
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="idImage != null" >
+        id_image,
+      </if>
+      <if test="idImgBackside != null" >
+        id_img_backside,
+      </if>
+      <if test="businessImage != null" >
+        business_image,
+      </if>
+      <if test="zzjgImg != null" >
+        zzjg_img,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="checkTime != null" >
+        check_time,
+      </if>
+      <if test="checkAdminId != null" >
+        check_admin_id,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="businessNumber != null" >
+        business_number,
+      </if>
+      <if test="businessName != null" >
+        business_name,
+      </if>
+      <if test="qyContact != null" >
+        qy_contact,
+      </if>
+      <if test="outDate != null" >
+        out_date,
+      </if>
+      <if test="validateCode != null" >
+        validate_code,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="onlineTime != null" >
+        online_time,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="dealerId != null" >
+        dealer_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="bankAccount != null" >
+        bank_account,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="types != null" >
+        types,
+      </if>
+      <if test="registertimes != null" >
+        registerTimes,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="parentName != null" >
+        parent_name,
+      </if>
+      <if test="parentCode != null" >
+        parent_code,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="refuseMessage != null" >
+        refuse_message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idImage != null" >
+        #{idImage,jdbcType=VARCHAR},
+      </if>
+      <if test="idImgBackside != null" >
+        #{idImgBackside,jdbcType=VARCHAR},
+      </if>
+      <if test="businessImage != null" >
+        #{businessImage,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgImg != null" >
+        #{zzjgImg,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkAdminId != null" >
+        #{checkAdminId,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="businessNumber != null" >
+        #{businessNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="businessName != null" >
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="qyContact != null" >
+        #{qyContact,jdbcType=VARCHAR},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validateCode != null" >
+        #{validateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="onlineTime != null" >
+        #{onlineTime,jdbcType=DOUBLE},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealerId != null" >
+        #{dealerId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="types != null" >
+        #{types,jdbcType=INTEGER},
+      </if>
+      <if test="registertimes != null" >
+        #{registertimes,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentName != null" >
+        #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCode != null" >
+        #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseMessage != null" >
+        #{refuseMessage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mall.model.YlgjUserFbz" >
+    update ylgj_user_fbz
+    <set >
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idImage != null" >
+        id_image = #{idImage,jdbcType=VARCHAR},
+      </if>
+      <if test="idImgBackside != null" >
+        id_img_backside = #{idImgBackside,jdbcType=VARCHAR},
+      </if>
+      <if test="businessImage != null" >
+        business_image = #{businessImage,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgImg != null" >
+        zzjg_img = #{zzjgImg,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkAdminId != null" >
+        check_admin_id = #{checkAdminId,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="businessNumber != null" >
+        business_number = #{businessNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="businessName != null" >
+        business_name = #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="qyContact != null" >
+        qy_contact = #{qyContact,jdbcType=VARCHAR},
+      </if>
+      <if test="outDate != null" >
+        out_date = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validateCode != null" >
+        validate_code = #{validateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="onlineTime != null" >
+        online_time = #{onlineTime,jdbcType=DOUBLE},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealerId != null" >
+        dealer_id = #{dealerId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="types != null" >
+        types = #{types,jdbcType=INTEGER},
+      </if>
+      <if test="registertimes != null" >
+        registerTimes = #{registertimes,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentName != null" >
+        parent_name = #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCode != null" >
+        parent_code = #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseMessage != null" >
+        refuse_message = #{refuseMessage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mall.model.YlgjUserFbz" >
+    update ylgj_user_fbz
+    set tel = #{tel,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      id_image = #{idImage,jdbcType=VARCHAR},
+      id_img_backside = #{idImgBackside,jdbcType=VARCHAR},
+      business_image = #{businessImage,jdbcType=VARCHAR},
+      zzjg_img = #{zzjgImg,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      district = #{district,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      check_admin_id = #{checkAdminId,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      business_number = #{businessNumber,jdbcType=VARCHAR},
+      business_name = #{businessName,jdbcType=VARCHAR},
+      qy_contact = #{qyContact,jdbcType=VARCHAR},
+      out_date = #{outDate,jdbcType=TIMESTAMP},
+      validate_code = #{validateCode,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DOUBLE},
+      online_time = #{onlineTime,jdbcType=DOUBLE},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      dealer_id = #{dealerId,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      types = #{types,jdbcType=INTEGER},
+      registerTimes = #{registertimes,jdbcType=VARCHAR},
+      cname = #{cname,jdbcType=VARCHAR},
+      parent_name = #{parentName,jdbcType=VARCHAR},
+      parent_code = #{parentCode,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=VARCHAR},
+      refuse_message = #{refuseMessage,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

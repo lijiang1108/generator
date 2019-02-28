@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.mapper.SsdUserCyzMapper" >
+  <resultMap id="BaseResultMap" type="com.mall.model.SsdUserCyz" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="car_id" property="carId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="driving_licence" property="drivingLicence" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="lon" property="lon" jdbcType="DECIMAL" />
+    <result column="lat" property="lat" jdbcType="DECIMAL" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="apply_bind" property="applyBind" jdbcType="TINYINT" />
+    <result column="master_driver" property="masterDriver" jdbcType="TINYINT" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="online_time" property="onlineTime" jdbcType="DOUBLE" />
+    <result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="check_time" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="check_admin_id" property="checkAdminId" jdbcType="VARCHAR" />
+    <result column="refuse_message" property="refuseMessage" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="account_id" property="accountId" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="validate_code" property="validateCode" jdbcType="VARCHAR" />
+    <result column="out_date" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
+    <result column="running_state" property="runningState" jdbcType="TINYINT" />
+    <result column="driver_license_img" property="driverLicenseImg" jdbcType="VARCHAR" />
+    <result column="id_img" property="idImg" jdbcType="VARCHAR" />
+    <result column="id_img_backside" property="idImgBackside" jdbcType="VARCHAR" />
+    <result column="dealer_id" property="dealerId" jdbcType="VARCHAR" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="types" property="types" jdbcType="TINYINT" />
+    <result column="apply_carid" property="applyCarid" jdbcType="VARCHAR" />
+    <result column="idIsDisting" property="idisdisting" jdbcType="TINYINT" />
+    <result column="driverLicenseIsDisting" property="driverlicenseisdisting" jdbcType="TINYINT" />
+    <result column="carLicenseIsDisting" property="carlicenseisdisting" jdbcType="TINYINT" />
+    <result column="photo_url" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="data_integrity" property="dataIntegrity" jdbcType="TINYINT" />
+    <result column="is_redpacket" property="isRedpacket" jdbcType="TINYINT" />
+    <result column="is_ssd" property="isSsd" jdbcType="TINYINT" />
+    <result column="parent_name" property="parentName" jdbcType="VARCHAR" />
+    <result column="parent_code" property="parentCode" jdbcType="VARCHAR" />
+    <result column="visable" property="visable" jdbcType="TINYINT" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, car_id, name, tel, id_card, driving_licence, address, latitude, lon, lat, state, 
+    apply_bind, master_driver, register_time, login_time, online_time, send_time, check_time, 
+    check_admin_id, refuse_message, bank_account, bank_name, account_id, account_name, 
+    validate_code, out_date, password, salt, score, running_state, driver_license_img, 
+    id_img, id_img_backside, dealer_id, openId, types, apply_carid, idIsDisting, driverLicenseIsDisting, 
+    carLicenseIsDisting, photo_url, data_integrity, is_redpacket, is_ssd, parent_name, 
+    parent_code, visable, parent_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ssd_user_cyz
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ssd_user_cyz
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mall.model.SsdUserCyz" >
+    insert into ssd_user_cyz (id, car_id, name, 
+      tel, id_card, driving_licence, 
+      address, latitude, lon, 
+      lat, state, apply_bind, 
+      master_driver, register_time, login_time, 
+      online_time, send_time, check_time, 
+      check_admin_id, refuse_message, bank_account, 
+      bank_name, account_id, account_name, 
+      validate_code, out_date, password, 
+      salt, score, running_state, 
+      driver_license_img, id_img, id_img_backside, 
+      dealer_id, openId, types, 
+      apply_carid, idIsDisting, driverLicenseIsDisting, 
+      carLicenseIsDisting, photo_url, data_integrity, 
+      is_redpacket, is_ssd, parent_name, 
+      parent_code, visable, parent_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{carId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{drivingLicence,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{lon,jdbcType=DECIMAL}, 
+      #{lat,jdbcType=DECIMAL}, #{state,jdbcType=TINYINT}, #{applyBind,jdbcType=TINYINT}, 
+      #{masterDriver,jdbcType=TINYINT}, #{registerTime,jdbcType=TIMESTAMP}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{onlineTime,jdbcType=DOUBLE}, #{sendTime,jdbcType=TIMESTAMP}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{checkAdminId,jdbcType=VARCHAR}, #{refuseMessage,jdbcType=VARCHAR}, #{bankAccount,jdbcType=VARCHAR}, 
+      #{bankName,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{validateCode,jdbcType=VARCHAR}, #{outDate,jdbcType=TIMESTAMP}, #{password,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{score,jdbcType=DOUBLE}, #{runningState,jdbcType=TINYINT}, 
+      #{driverLicenseImg,jdbcType=VARCHAR}, #{idImg,jdbcType=VARCHAR}, #{idImgBackside,jdbcType=VARCHAR}, 
+      #{dealerId,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{types,jdbcType=TINYINT}, 
+      #{applyCarid,jdbcType=VARCHAR}, #{idisdisting,jdbcType=TINYINT}, #{driverlicenseisdisting,jdbcType=TINYINT}, 
+      #{carlicenseisdisting,jdbcType=TINYINT}, #{photoUrl,jdbcType=VARCHAR}, #{dataIntegrity,jdbcType=TINYINT}, 
+      #{isRedpacket,jdbcType=TINYINT}, #{isSsd,jdbcType=TINYINT}, #{parentName,jdbcType=VARCHAR}, 
+      #{parentCode,jdbcType=VARCHAR}, #{visable,jdbcType=TINYINT}, #{parentId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mall.model.SsdUserCyz" >
+    insert into ssd_user_cyz
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="drivingLicence != null" >
+        driving_licence,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="lon != null" >
+        lon,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="applyBind != null" >
+        apply_bind,
+      </if>
+      <if test="masterDriver != null" >
+        master_driver,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="onlineTime != null" >
+        online_time,
+      </if>
+      <if test="sendTime != null" >
+        send_time,
+      </if>
+      <if test="checkTime != null" >
+        check_time,
+      </if>
+      <if test="checkAdminId != null" >
+        check_admin_id,
+      </if>
+      <if test="refuseMessage != null" >
+        refuse_message,
+      </if>
+      <if test="bankAccount != null" >
+        bank_account,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="validateCode != null" >
+        validate_code,
+      </if>
+      <if test="outDate != null" >
+        out_date,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="runningState != null" >
+        running_state,
+      </if>
+      <if test="driverLicenseImg != null" >
+        driver_license_img,
+      </if>
+      <if test="idImg != null" >
+        id_img,
+      </if>
+      <if test="idImgBackside != null" >
+        id_img_backside,
+      </if>
+      <if test="dealerId != null" >
+        dealer_id,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="types != null" >
+        types,
+      </if>
+      <if test="applyCarid != null" >
+        apply_carid,
+      </if>
+      <if test="idisdisting != null" >
+        idIsDisting,
+      </if>
+      <if test="driverlicenseisdisting != null" >
+        driverLicenseIsDisting,
+      </if>
+      <if test="carlicenseisdisting != null" >
+        carLicenseIsDisting,
+      </if>
+      <if test="photoUrl != null" >
+        photo_url,
+      </if>
+      <if test="dataIntegrity != null" >
+        data_integrity,
+      </if>
+      <if test="isRedpacket != null" >
+        is_redpacket,
+      </if>
+      <if test="isSsd != null" >
+        is_ssd,
+      </if>
+      <if test="parentName != null" >
+        parent_name,
+      </if>
+      <if test="parentCode != null" >
+        parent_code,
+      </if>
+      <if test="visable != null" >
+        visable,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicence != null" >
+        #{drivingLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="lon != null" >
+        #{lon,jdbcType=DECIMAL},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="applyBind != null" >
+        #{applyBind,jdbcType=TINYINT},
+      </if>
+      <if test="masterDriver != null" >
+        #{masterDriver,jdbcType=TINYINT},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineTime != null" >
+        #{onlineTime,jdbcType=DOUBLE},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkAdminId != null" >
+        #{checkAdminId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseMessage != null" >
+        #{refuseMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="validateCode != null" >
+        #{validateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="runningState != null" >
+        #{runningState,jdbcType=TINYINT},
+      </if>
+      <if test="driverLicenseImg != null" >
+        #{driverLicenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="idImg != null" >
+        #{idImg,jdbcType=VARCHAR},
+      </if>
+      <if test="idImgBackside != null" >
+        #{idImgBackside,jdbcType=VARCHAR},
+      </if>
+      <if test="dealerId != null" >
+        #{dealerId,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="types != null" >
+        #{types,jdbcType=TINYINT},
+      </if>
+      <if test="applyCarid != null" >
+        #{applyCarid,jdbcType=VARCHAR},
+      </if>
+      <if test="idisdisting != null" >
+        #{idisdisting,jdbcType=TINYINT},
+      </if>
+      <if test="driverlicenseisdisting != null" >
+        #{driverlicenseisdisting,jdbcType=TINYINT},
+      </if>
+      <if test="carlicenseisdisting != null" >
+        #{carlicenseisdisting,jdbcType=TINYINT},
+      </if>
+      <if test="photoUrl != null" >
+        #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="dataIntegrity != null" >
+        #{dataIntegrity,jdbcType=TINYINT},
+      </if>
+      <if test="isRedpacket != null" >
+        #{isRedpacket,jdbcType=TINYINT},
+      </if>
+      <if test="isSsd != null" >
+        #{isSsd,jdbcType=TINYINT},
+      </if>
+      <if test="parentName != null" >
+        #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCode != null" >
+        #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="visable != null" >
+        #{visable,jdbcType=TINYINT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mall.model.SsdUserCyz" >
+    update ssd_user_cyz
+    <set >
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicence != null" >
+        driving_licence = #{drivingLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="lon != null" >
+        lon = #{lon,jdbcType=DECIMAL},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="applyBind != null" >
+        apply_bind = #{applyBind,jdbcType=TINYINT},
+      </if>
+      <if test="masterDriver != null" >
+        master_driver = #{masterDriver,jdbcType=TINYINT},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineTime != null" >
+        online_time = #{onlineTime,jdbcType=DOUBLE},
+      </if>
+      <if test="sendTime != null" >
+        send_time = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkTime != null" >
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkAdminId != null" >
+        check_admin_id = #{checkAdminId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseMessage != null" >
+        refuse_message = #{refuseMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="validateCode != null" >
+        validate_code = #{validateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outDate != null" >
+        out_date = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="runningState != null" >
+        running_state = #{runningState,jdbcType=TINYINT},
+      </if>
+      <if test="driverLicenseImg != null" >
+        driver_license_img = #{driverLicenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="idImg != null" >
+        id_img = #{idImg,jdbcType=VARCHAR},
+      </if>
+      <if test="idImgBackside != null" >
+        id_img_backside = #{idImgBackside,jdbcType=VARCHAR},
+      </if>
+      <if test="dealerId != null" >
+        dealer_id = #{dealerId,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="types != null" >
+        types = #{types,jdbcType=TINYINT},
+      </if>
+      <if test="applyCarid != null" >
+        apply_carid = #{applyCarid,jdbcType=VARCHAR},
+      </if>
+      <if test="idisdisting != null" >
+        idIsDisting = #{idisdisting,jdbcType=TINYINT},
+      </if>
+      <if test="driverlicenseisdisting != null" >
+        driverLicenseIsDisting = #{driverlicenseisdisting,jdbcType=TINYINT},
+      </if>
+      <if test="carlicenseisdisting != null" >
+        carLicenseIsDisting = #{carlicenseisdisting,jdbcType=TINYINT},
+      </if>
+      <if test="photoUrl != null" >
+        photo_url = #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="dataIntegrity != null" >
+        data_integrity = #{dataIntegrity,jdbcType=TINYINT},
+      </if>
+      <if test="isRedpacket != null" >
+        is_redpacket = #{isRedpacket,jdbcType=TINYINT},
+      </if>
+      <if test="isSsd != null" >
+        is_ssd = #{isSsd,jdbcType=TINYINT},
+      </if>
+      <if test="parentName != null" >
+        parent_name = #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCode != null" >
+        parent_code = #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="visable != null" >
+        visable = #{visable,jdbcType=TINYINT},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mall.model.SsdUserCyz" >
+    update ssd_user_cyz
+    set car_id = #{carId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      driving_licence = #{drivingLicence,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      lon = #{lon,jdbcType=DECIMAL},
+      lat = #{lat,jdbcType=DECIMAL},
+      state = #{state,jdbcType=TINYINT},
+      apply_bind = #{applyBind,jdbcType=TINYINT},
+      master_driver = #{masterDriver,jdbcType=TINYINT},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      online_time = #{onlineTime,jdbcType=DOUBLE},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      check_admin_id = #{checkAdminId,jdbcType=VARCHAR},
+      refuse_message = #{refuseMessage,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      validate_code = #{validateCode,jdbcType=VARCHAR},
+      out_date = #{outDate,jdbcType=TIMESTAMP},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DOUBLE},
+      running_state = #{runningState,jdbcType=TINYINT},
+      driver_license_img = #{driverLicenseImg,jdbcType=VARCHAR},
+      id_img = #{idImg,jdbcType=VARCHAR},
+      id_img_backside = #{idImgBackside,jdbcType=VARCHAR},
+      dealer_id = #{dealerId,jdbcType=VARCHAR},
+      openId = #{openid,jdbcType=VARCHAR},
+      types = #{types,jdbcType=TINYINT},
+      apply_carid = #{applyCarid,jdbcType=VARCHAR},
+      idIsDisting = #{idisdisting,jdbcType=TINYINT},
+      driverLicenseIsDisting = #{driverlicenseisdisting,jdbcType=TINYINT},
+      carLicenseIsDisting = #{carlicenseisdisting,jdbcType=TINYINT},
+      photo_url = #{photoUrl,jdbcType=VARCHAR},
+      data_integrity = #{dataIntegrity,jdbcType=TINYINT},
+      is_redpacket = #{isRedpacket,jdbcType=TINYINT},
+      is_ssd = #{isSsd,jdbcType=TINYINT},
+      parent_name = #{parentName,jdbcType=VARCHAR},
+      parent_code = #{parentCode,jdbcType=VARCHAR},
+      visable = #{visable,jdbcType=TINYINT},
+      parent_id = #{parentId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
